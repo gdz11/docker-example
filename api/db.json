@@ -26,6 +26,11 @@
       "password": "$2a$10$6TLJcRuo1YR3UVZ5whV98.m3JOdQkyFThkUOeMEycAfwe3Rc7wmgC",
       "userType": 1,
       "id": 5
+    },
+    {
+      "email": "test7@email.com",
+      "password": "$2a$10$J8zA5YcsYQpFmm6YPPR3tODs5ZuM2LZAYC2e.d9HMXFIjX/3S1ofi",
+      "id": 6
     }
   ]
 }

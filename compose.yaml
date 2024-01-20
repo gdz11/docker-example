@@ -1,0 +1,29 @@
+services:
+  web-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: angular-app
+    ports:
+      - 80:80
+  web-api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: angular-api
+    ports:
+      - 3000:3000
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: strongpassword
+
+
+#use docker compose up -d for running prebuilt images
+#use docker compose build to build images
+#use docker compose up -d --build to build and run images
+
+#if you dont want to use compose for building, you can remove build sections
