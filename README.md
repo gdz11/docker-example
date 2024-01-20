@@ -1,27 +1,25 @@
-# Lecture11Examples
+# Docker example
+#### (based on lecture 11 examples app)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.7.
+#### There 2 dockerfiles added: one for building angular app container image, one for building api container image
+#### Additionally we have nginx.conf file which is used for serving angular app using nginx web server (to make angular routing work when directly navigating to url)
+#### Finally we have compose.yaml file for startin (and optionally buildilng) all containers
+#### Additinally there cmd files which contain commands that you can run for building images manually (from cmd/terminal)
 
-## Development server
+#### There are 3 containers defined in compose file:
+- angular app (frontend)
+- angular api (backend)
+- db - database (just sample, here we use json-server, but in real world example angular-api container would connect do database)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### use `docker compose up -d` for running prebuilt images
+### use `docker compose build` to build images
+### use `docker compose up -d --build` to build and run images
 
-## Code scaffolding
+if you dont want to use compose for building, you can remove build sections from compose.yaml file
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### Don't forget to change images  ( yourdockerid/image-name) in compose file if you would like to upload images to dockerhub
 
-## Build
+### use `docker compose push` after `docker compose build` to upload images to docker hub
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Alternatively you can use  `docker push yourdockerid/image-name` to push individual image to docker hub
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
